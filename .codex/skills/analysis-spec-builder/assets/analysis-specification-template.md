@@ -6,10 +6,10 @@
 
 {{List all the data samples that are needed for this work below in the table. If the dataset has been explicitly named, include that too so the information is not lost.}}
 
-| Data Sample | Role(s) In Analysis |
-| --- | --- |
-| {{ds 1}} | {{Signal/Background, Control Region, etc.}}
-| {{ds 2}} | {{Signal/Background, Control Region, etc.}}
+| Data Sample | Derivation | Role(s) In Analysis |
+| --- | --- | --- |
+| {{ds 1}} | {{PHYS/PHYSLITE/LLM1, etc. Assume PHYSLITE unless detailed information (cells, etc) is required}} | {{Signal/Background, Control Region, etc.}} |
+| {{ds 2}} | {{PHYS/PHYSLITE/LLM1, etc. Assume PHYSLITE unless detailed information (cells, etc) is required}} | {{Signal/Background, Control Region, etc.}} |
 
 ## Histograms
 
@@ -19,7 +19,7 @@
     * x Axis
         * {{Detailed description of what should be plotted}}
         * {{Label for axis, including units if unit-full quantity (e.g. `$p_T$ [GeV]`, or `$\eta$`) - use LaTeX formatting for labels}}}
-        * {{Info on binning and axis limits if known}}
+        * {{Info on binning and axis limits if specified by user. Otherwise leave blank.}}
         * {{Info on how many entries per event, or per combination in an event, etc.}}
     * {{List other axes here}}
 2. {{Histogram 2 Title}}
@@ -40,7 +40,7 @@
 {{List the steps that are required to process the files to put together the final set of histograms. Below are the most common steps, but it would make sense to add others (for example, training ML)}}
 
 1. Data Extraction and NTuple Skimming
-    * {{What event/objects filtering can be done at the source data file level. For example, you'll never need to look at events with less than 3 jets. This reduces storage for the work, and storage is one of the most expensive items}}
+    * {{Filtering: What event/objects filtering can be done at the source data file level. For example, you'll never need to look at events with less than 3 jets. This reduces storage for the work, and storage is one of the most expensive items. Explicitly say `No Filtering` if none is called for.}}
     * {{List of variables that should be extracted from the data and passed downstream.}}
 2. Data Analysis & Histogramming
     * {{What new variables should be constructed from what was read from the input files in step 1.}}

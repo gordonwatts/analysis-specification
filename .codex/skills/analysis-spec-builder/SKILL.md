@@ -18,7 +18,7 @@ description: Build and iteratively refine physics analysis specifications using 
 - Replace every `{{...}}` placeholder with real content; do not leave placeholders in the final spec.
 - Keep the tone concise and technical; preserve the template section order.
 - If something is unknown, propose a reasonable default and mark it as a question in the next response (do not leave placeholders).
-- Preserve any explicit dataset identifiers or analysis names verbatim.
+- Preserve any explicit dataset identifiers or analysis names verbatim. Assume the user will use PHYSLITE unless told otherwise, or you know the data isn't available there.
 - Use ASCII-only text unless the template already uses non-ASCII (e.g., LaTeX labels inside backticks).
 - This is a specification, not a step-by-step plan for implementation of the analysis or plot.
 - Details, exactly what version of objects or containers, are not included here. When detailed plans are developed from here, they will be determined. On the other hand, if the user specifies them, then they should be explicitly mentioned.
