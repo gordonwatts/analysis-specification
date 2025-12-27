@@ -8,8 +8,8 @@
 
 | Data Sample | Derivation | Role(s) In Analysis |
 | --- | --- | --- |
-| {{ds 1}} | {{PHYS/PHYSLITE/LLM1, etc. Assume PHYSLITE unless detailed information (cells, etc) is required}} | {{Signal/Background, Control Region, etc.}} |
-| {{ds 2}} | {{PHYS/PHYSLITE/LLM1, etc. Assume PHYSLITE unless detailed information (cells, etc) is required}} | {{Signal/Background, Control Region, etc.}} |
+| {{ds 1}} | {{PHYS/PHYSLITE/LLM1, etc. Leave blank unless told by dataset name or user}} | {{Signal/Background, Control Region, etc.}} |
+| {{ds 2}} | {{PHYS/PHYSLITE/LLM1, etc. Leave blank unless told by dataset name or user}} | {{Signal/Background, Control Region, etc.}} |
 
 ## Histograms
 
@@ -30,9 +30,12 @@
 
 {{Turning the event data into the histogram often requires complex manipulations. If any high level manipulations are required, they should be listed here. They should be broken down into reusable calculations as makes most sense.}}
 
+1. {{Selection}}
+    * {{What event level or object level cuts are getting applied}}
 1. {{Variable Name}}
     * {{Calculated}}
-2. {{Variable Name}}
+    * {{Combinatorics should be mentioned explicitly - in particular when trying to select the best combination.}}
+1. {{Repeat the above steps as needed}}
     * ...
 
 ## Workflow
