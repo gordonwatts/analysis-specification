@@ -37,12 +37,17 @@
 
 ## Workflow
 
-{{List the steps that are required to process the files to put together the final set of histograms}}
+{{List the steps that are required to process the files to put together the final set of histograms. Below are the most common steps, but it would make sense to add others (for example, training ML)}}
 
-1. {{Step Name}}
-    * {{What should be done (e.g. process all signals into separate sets of histograms)}}
-2. {{Step Name}}
-    * ...
+1. Data Extraction and NTuple Skimming
+    * {{What event/objects filtering can be done at the source data file level. For example, you'll never need to look at events with less than 3 jets. This reduces storage for the work, and storage is one of the most expensive items}}
+    * {{List of variables that should be extracted from the data and passed downstream.}}
+2. Data Analysis & Histogramming
+    * {{What new variables should be constructed from what was read from the input files in step 1.}}
+    * {{Work here should include any combinatorics building, high level event filtering, etc.}}
+    * {{The above variables should be used to directly fill the requested histograms.}}
+
+{{If systematic errors are to be taken into account, that likely means all the above steps have to be repeated for each systematic error. Make a note here if this is the case - don't say anything if systematic errors aren't needed.}}
 
 ## Statistical Analysis
 
