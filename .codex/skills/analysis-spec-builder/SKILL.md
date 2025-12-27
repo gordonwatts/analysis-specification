@@ -7,7 +7,7 @@ description: Build and iteratively refine physics analysis specifications using 
 
 ## Workflow
 
-1. Read the template from `assets/analysis-specification-template.md`.
+1. Read the template from `./assets/analysis-specification-template.md` (relative to the this file, in the `analysis-spec-building` sub directory).
 2. Draft a filled-in specification by replacing all `{{...}}` placeholders with concrete content derived from the user's request.
 3. Ask focused follow-up questions for any missing critical details (datasets, selections, histogram definitions, workflow steps, tooling). Keep questions short and grouped by section.
 4. Iterate revisions until the user confirms the specification is correct.
