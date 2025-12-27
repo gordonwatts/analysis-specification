@@ -19,7 +19,7 @@
     * x Axis
         * {{Detailed description of what should be plotted}}
         * {{Label for axis, including units if unit-full quantity (e.g. `$p_T$ [GeV]`, or `$\eta$`) - use LaTeX formatting for labels}}}
-        * {{Info on binning and axis limits if specified by user. Otherwise leave blank.}}
+        * {{Info on binning and axis limits if specified by user. Leave blank unless given explicit instructions.}}
         * {{Info on how many entries per event, or per combination in an event, etc.}}
     * {{List other axes here}}
 2. {{Histogram 2 Title}}

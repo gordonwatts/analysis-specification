@@ -23,3 +23,8 @@ This specification should:
 * This is an outline, not a procedural step-by-step.
 * No code fragments
 * While tools will likely be listed, there should be no step-by-step setup guides, etc.
+
+## Skills
+
+There is one skill here, the `analysis-spec-builder`. Once loaded in `claude` or `codex`, you can use it for something simple like `Create an analysis specification to "Plot the ETmiss of all events in the rucio dataset
+  user.zmarshal:user.zmarshal.364702_OpenData_v1_p6026_2024-04-23"` - and then iterate if you want to specify further things.

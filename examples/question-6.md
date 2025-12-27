@@ -1,47 +1,50 @@
-# Trijet Closest-to-Top pT and Max b-tag Discriminant
+# Trijet Top Candidate pT and Max b-tag in Closest-mass Trijet
 
-Select events with at least three jets, form all trijet combinations, choose the trijet whose invariant mass is closest to 172.5 GeV, then plot its pT and the maximum b-tag discriminant among its jets for the specified dataset.
+Select events with at least three jets and, per event, build all trijet combinations to find the one with invariant mass closest to 172.5 GeV. Plot the trijet pT and the maximum b-tagging discriminant among the jets in that trijet.
 
 ## Data Samples
 
 | Data Sample | Derivation | Role(s) In Analysis |
 | --- | --- | --- |
-| opendata:mc20_13TeV.410471.PhPy8EG_A14_ttbar_hdamp258p75_allhad.deriv.DAOD_PHYSLITE.e6337_s3681_r13167_p6026 | PHYSLITE | Signal / study sample |
+| opendata:mc20_13TeV.410471.PhPy8EG_A14_ttbar_hdamp258p75_allhad.deriv.DAOD_PHYSLITE.e6337_s3681_r13167_p6026 | PHYSLITE | Signal (ttbar all-hadronic) |
 
 ## Histograms
 
-1. Trijet pT (closest to 172.5 GeV)
+1. Trijet pT (closest-mass trijet)
     * x Axis
-        * pT of the trijet four-momentum for the trijet with invariant mass closest to 172.5 GeV in each event with >=3 jets
+        * Transverse momentum of the trijet four-momentum whose invariant mass is closest to 172.5 GeV in each event.
         * `$p_T^{3j}$ [GeV]`
-        * 
-        * One entry per event (events with >=3 jets)
-2. Max b-tag discriminant in selected trijet
+        * Binning: 50 bins, 0 to 500 GeV.
+        * One entry per event (if at least one trijet exists).
+2. Max b-tag discriminant in closest-mass trijet
     * x Axis
-        * Maximum b-tagging discriminant value among the three jets in the selected trijet
+        * Maximum b-tagging discriminant value among the three jets in the selected trijet.
         * `max b-tag discriminant`
-        * 
-        * One entry per event (events with >=3 jets)
+        * Binning: 50 bins, 0 to 1 (normalized discriminant).
+        * One entry per event (if at least one trijet exists).
 
 ## Analysis Steps
 
-1. Jet Selection
-    * Select jets per event, then require events with at least three selected jets
-2. Trijet Candidate Selection
-    * Build all trijet combinations, compute invariant mass for each, and choose the trijet with mass closest to 172.5 GeV
-3. Trijet pT
-    * Compute the pT of the selected trijet four-momentum
-4. Max b-tag Discriminant
-    * Compute the maximum b-tag discriminant among the three jets in the selected trijet
+1. Event and jet selection
+    * Require at least three jets passing baseline selection.
+    * Use jets with pT > 25 GeV and |eta| < 2.5.
+2. Build trijet combinations
+    * For each event, build all 3-jet combinations and compute their invariant mass and trijet four-momentum.
+3. Closest-mass trijet selection
+    * Select the trijet with invariant mass closest to 172.5 GeV.
+4. Derived quantities
+    * Trijet pT from the selected trijet four-momentum.
+    * Max b-tag discriminant from the three jets in the selected trijet.
 
 ## Workflow
 
 1. Data Extraction and NTuple Skimming
-    * Filtering: Keep events with at least three selected jets
-    * Variables: jet four-momentum components (pt, eta, phi, mass or energy), jet b-tagging discriminant, and any jet selection flags required
+    * Filtering: keep only events with at least three jets passing baseline selection.
+    * Variables: jet pt, eta, phi, mass, and b-tag discriminant (exact field name to be specified).
 2. Data Analysis & Histogramming
-    * Build trijet combinations, compute invariant masses, select closest to 172.5 GeV
-    * Compute trijet pT and max b-tag discriminant, then fill the histograms
+    * Build trijet combinations, compute mass and pT, select closest to 172.5 GeV.
+    * Compute max b-tag discriminant in the selected trijet.
+    * Fill the two histograms with one entry per selected event.
 
 ## Statistical Analysis
 
@@ -50,10 +53,10 @@ None.
 ## Tools
 
 * servicex (func_adl)
-  * Query PHYSLITE and apply the event-level >=3 jet filter at the source
+  * Extract PHYSLITE jets and apply event/jet filtering.
 * awkward
-  * Build trijet combinations and per-event selection
+  * Build combinations and select closest-mass trijet.
 * vector
-  * Four-momentum construction and invariant mass, pT computations
+  * Compute trijet four-momenta, mass, and pT.
 * hist
-  * Histogram filling and PNG output
+  * Fill and save histograms as PNG.

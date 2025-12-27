@@ -1,37 +1,36 @@
-# ETmiss Spectrum for Open Data Sample
+# Plot ETmiss for Open Data dataset
 
-Plot missing transverse energy for all events in the specified Open Data dataset.
+Plot the missing transverse energy (ETmiss) distribution for all events in the specified Open Data dataset.
 
 ## Data Samples
 
-All data are drawn from the single rucio dataset named below.
-
-| Data Sample | Role(s) In Analysis |
-| --- | --- |
-| user.zmarshal:user.zmarshal.364702_OpenData_v1_p6026_2024-04-23 | Data (inclusive, all events) |
+| Data Sample | Derivation | Role(s) In Analysis |
+| --- | --- | --- |
+| user.zmarshal:user.zmarshal.364702_OpenData_v1_p6026_2024-04-23 | PHYSLITE | Data |
 
 ## Histograms
 
 1. ETmiss
     * x Axis
-        * Missing transverse energy for each event.
+        * Missing transverse energy magnitude for each event.
         * `$E_T^{miss}$ [GeV]`
-        * Proposed binning: 0 to 500 GeV in 50 uniform bins (update if you prefer).
+        * Default binning: 0 to 500 GeV in 50 bins.
         * One entry per event.
 
 ## Analysis Steps
 
+1. Event selection
+    * No selection; include all events.
 1. ETmiss
-    * Read the event-level missing transverse energy from the dataset and use it directly for histogramming.
+    * Read event-level missing transverse energy.
 
 ## Workflow
 
-1. Data access
-    * Query the rucio dataset with ServiceX/func_adl and retrieve the needed ETmiss branch.
-2. Histogramming
-    * Fill the ETmiss histogram for all events.
-3. Output
-    * Save the histogram as a PNG image.
+1. Data Extraction and NTuple Skimming
+    * Filtering: No Filtering.
+    * Variables: event-level ETmiss (magnitude) and any required metadata for dataset bookkeeping.
+2. Data Analysis & Histogramming
+    * Fill ETmiss histogram with one entry per event.
 
 ## Statistical Analysis
 
@@ -39,11 +38,11 @@ None.
 
 ## Tools
 
-* servicex (func_adl)
-  * Query and skim the dataset, selecting the ETmiss branch.
+* servicex
+  * Use func_adl to access the specified dataset and retrieve ETmiss.
 * awkward
-  * Manipulate event arrays and interface with histogramming.
+  * Event-level array handling.
 * hist
-  * Define and fill the ETmiss histogram; export PNG.
+  * Fill and store histogram as PNG.
 * vector
-  * Not required unless ETmiss must be reconstructed from components.
+  * Not required unless ETmiss needs vector construction; only use if needed.
